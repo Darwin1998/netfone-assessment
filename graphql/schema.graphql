@@ -1,0 +1,31 @@
+type User {
+    id: ID!
+    password: String!
+    name: String!
+    email: String!
+}
+
+type Contact {
+    id: ID!
+    name: String!
+    contact_no: String!
+    created_at: String!
+    updated_at: String!
+}
+
+type Query {
+    listContacts: [Contact!]!
+    viewContact(id: ID!): Contact!
+}
+
+type Mutation {
+    loginUser(email: String!, password: String!): LoginResponse!
+    createContact(name: String!, contact_no: String!): Contact!
+    updateContact(id: ID!, name: String, contact_no: String): Contact!
+    deleteContact(id: ID!): Contact!
+}
+
+type LoginResponse {
+    token: String
+    user: User
+}
